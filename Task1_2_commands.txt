@@ -1,0 +1,594 @@
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    File1.txt -> TestFile.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    FiletoDelete.txt
+
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git commit -am "File1 rename to testfile"
+[master 77e8cfa] File1 rename to testfile
+ 2 files changed, 1 deletion(-)
+ delete mode 100644 FiletoDelete.txt
+ rename File1.txt => TestFile.txt (100%)
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+77e8cfa (HEAD -> master) File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch bug
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git checkout bug
+Switched to branch 'bug'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug)
+$ git status
+On branch bug
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   TestFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug)
+$ git checkout master
+Switched to branch 'master'
+M       TestFile.txt
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   TestFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git checkout bug
+Switched to branch 'bug'
+M       TestFile.txt
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug)
+$ git commit -am "Bug Resolved - space added between numerical and letters"
+[bug 9bd4fa6] Bug Resolved - space added between numerical and letters
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug)
+$ git status
+On branch bug
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug)
+$ git checkout master
+Switched to branch 'master'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git merge bug
+Updating 77e8cfa..9bd4fa6
+Fast-forward
+ TestFile.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+9bd4fa6 (HEAD -> master, bug) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch -d bug
+Deleted branch bug (was 9bd4fa6).
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch
+* master
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch bug123 9bd4fa6
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch
+  bug123
+* master
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch idea
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch
+  bug123
+  idea
+* master
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git checkout idea
+Switched to branch 'idea'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git status
+On branch idea
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   TestFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git commit -am "new line added at idea branch"
+[idea e32f165] new line added at idea branch
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git status
+On branch idea
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git checkout master
+Switched to branch 'master'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+9bd4fa6 (HEAD -> master, bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git commit -am "new line added at master branch after idea"
+[master 4a2b474] new line added at master branch after idea
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+4a2b474 (HEAD -> master) new line added at master branch after idea
+9bd4fa6 (bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git rebase master
+Current branch master is up to date.
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+4a2b474 (HEAD -> master) new line added at master branch after idea
+9bd4fa6 (bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git checkout idea
+Switched to branch 'idea'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git rebase master
+error: could not apply e32f165... new line added at idea branch
+Resolve all conflicts manually, mark them as resolved with
+"git add/rm <conflicted_files>", then run "git rebase --continue".
+You can instead skip this commit: run "git rebase --skip".
+To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply e32f165... new line added at idea branch
+Auto-merging TestFile.txt
+CONFLICT (content): Merge conflict in TestFile.txt
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea|REBASE 1/1)
+$ git status
+interactive rebase in progress; onto 4a2b474
+Last command done (1 command done):
+   pick e32f165 new line added at idea branch
+No commands remaining.
+You are currently rebasing branch 'idea' on '4a2b474'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add <file>..." to mark resolution)
+        both modified:   TestFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea|REBASE 1/1)
+$ git add .
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea|REBASE 1/1)
+$ git status
+interactive rebase in progress; onto 4a2b474
+Last command done (1 command done):
+   pick e32f165 new line added at idea branch
+No commands remaining.
+You are currently rebasing branch 'idea' on '4a2b474'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   TestFile.txt
+
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea|REBASE 1/1)
+$ git status
+interactive rebase in progress; onto 4a2b474
+Last command done (1 command done):
+   pick e32f165 new line added at idea branch
+No commands remaining.
+You are currently rebasing branch 'idea' on '4a2b474'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   TestFile.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   TestFile.txt
+
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea|REBASE 1/1)
+$ git add .
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea|REBASE 1/1)
+$ git rebase --continue
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/Acer/Desktop/Persistent Trainings/GIT_Training/Case_Study/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/Acer/Desktop/Persistent Trainings/GIT_Training/Case_Study/.git/COMMIT_EDITMSG to Unix format...
+[detached HEAD db55b60] Stable version is released v1.0
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/idea.
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git status
+On branch idea
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git log --oneline
+db55b60 (HEAD -> idea) Stable version is released v1.0
+4a2b474 (master) new line added at master branch after idea
+9bd4fa6 (bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (idea)
+$ git checkout master
+Switched to branch 'master'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+4a2b474 (HEAD -> master) new line added at master branch after idea
+9bd4fa6 (bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git merge idea
+Updating 4a2b474..db55b60
+Fast-forward
+ TestFile.txt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+db55b60 (HEAD -> master, idea) Stable version is released v1.0
+4a2b474 new line added at master branch after idea
+9bd4fa6 (bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git tag
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git tag v1.0 db55b60
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+db55b60 (HEAD -> master, tag: v1.0, idea) Stable version is released v1.0
+4a2b474 new line added at master branch after idea
+9bd4fa6 (bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git branch
+  bug123
+  idea
+* master
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git checkout bug123
+Switched to branch 'bug123'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git checkout master
+Switched to branch 'master'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+db55b60 (HEAD -> master, tag: v1.0, idea) Stable version is released v1.0
+4a2b474 new line added at master branch after idea
+9bd4fa6 (bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git checkout bug123
+Switched to branch 'bug123'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git status
+On branch bug123
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   TestFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git add .
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git status
+On branch bug123
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   TestFile.txt
+
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git stash lost
+fatal: unknown subcommand: lost
+
+usage: git stash list [<options>]
+   or: git stash show [<options>] [<stash>]
+   or: git stash drop [-q|--quiet] [<stash>]
+   or: git stash ( pop | apply ) [--index] [-q|--quiet] [<stash>]
+   or: git stash branch <branchname> [<stash>]
+   or: git stash clear
+   or: git stash [push [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]
+          [-u|--include-untracked] [-a|--all] [-m|--message <message>]
+          [--pathspec-from-file=<file> [--pathspec-file-nul]]
+          [--] [<pathspec>...]]
+   or: git stash save [-p|--patch] [-k|--[no-]keep-index] [-q|--quiet]
+          [-u|--include-untracked] [-a|--all] [<message>]
+
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git stash list
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git stash save -m "Least priority work "
+Saved working directory and index state On bug123: Least priority work
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git status
+On branch bug123
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git log --oneline
+9bd4fa6 (HEAD -> bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git checkout master
+Switched to branch 'master'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git stash list
+stash@{0}: On bug123: Least priority work
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git checkout bug123
+Switched to branch 'bug123'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git status
+On branch bug123
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git log --oneline
+9bd4fa6 (HEAD -> bug123) Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git stash apply ^C
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git stash apply stash@{0}
+On branch bug123
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   TestFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git add .
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git stash apply stash@{0}
+On branch bug123
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   TestFile.txt
+
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git commit -am "Change 3 in file 1"
+[bug123 3f26e30] Change 3 in file 1
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git stash apply stash@{0}
+On branch bug123
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git status
+On branch bug123
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git log --oneline
+3f26e30 (HEAD -> bug123) Change 3 in file 1
+9bd4fa6 Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (bug123)
+$ git checkout master
+Switched to branch 'master'
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+db55b60 (HEAD -> master, tag: v1.0, idea) Stable version is released v1.0
+4a2b474 new line added at master branch after idea
+9bd4fa6 Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git merge bug123
+Auto-merging TestFile.txt
+CONFLICT (content): Merge conflict in TestFile.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master|MERGING)
+$ git merge bug123
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   TestFile.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master|MERGING)
+$ git add .
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master|MERGING)
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   TestFile.txt
+
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master|MERGING)
+$ git commit -m "Change 3 after merging"
+[master 17aa87e] Change 3 after merging
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$ git log --oneline
+17aa87e (HEAD -> master) Change 3 after merging
+3f26e30 (bug123) Change 3 in file 1
+db55b60 (tag: v1.0, idea) Stable version is released v1.0
+4a2b474 new line added at master branch after idea
+9bd4fa6 Bug Resolved - space added between numerical and letters
+77e8cfa File1 rename to testfile
+28f98a7 Change2 in File1
+bd1172a Change1 in File1
+c11889d gitignore commit to ignore files
+8aaeba7 This is First Commit, tracking file1 and filetodelete
+
+Acer@DESKTOP-2JL3T9A MINGW64 ~/Desktop/Persistent Trainings/GIT_Training/Case_Study (master)
+$
