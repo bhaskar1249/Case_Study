@@ -5,5 +5,5 @@ this is change at master branch after idea commit
 This is change at idea branch
 this is file change (Change 3)
 
-
 change made throgh local to conflict 
+Change 1st through github 
