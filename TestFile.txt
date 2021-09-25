@@ -7,3 +7,4 @@ this is file change (Change 3)
 
 change made throgh local to conflict 
 Change 1st through github 
+Change to see pull command
